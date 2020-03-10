@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#039BE5</color>
+    <color name="colorPrimaryDark">#039BE5</color>
+    <color name="colorAccent">#FFB300</color>
+    <color name="grey">#8A8A8A</color>
+    <color name="little_grey">#F0F0F5</color>
+    <color name="tencent_blue">#33B7FF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="onlineGreen">#00FF22</color>
+    <color name="toolbarGrey">#C4C4C4</color>
+</resources>

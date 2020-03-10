@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="DrawerItemView">
+        <attr name="icon" format="reference"/>
+        <attr name="text" format="string"/>
+    </declare-styleable>
+    <declare-styleable name="DrawerBottomItemView">
+        <attr name="iicon" format="reference"/>
+        <attr name="text_description" format="string"/>
+        <attr name="name" format="string"/>
+        <attr name="img" format="boolean"/>
+    </declare-styleable>
+    <declare-styleable name="QQLevelView">
+        <attr name="qq_level" format="integer"/>
+    </declare-styleable>
+</resources>

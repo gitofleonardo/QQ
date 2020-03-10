@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.main.fragments.MessageFragment"
+    android:orientation="vertical">
+    <cn.huangchengxi.kotlintest.customedviews.OverNestedScrollView
+        android:fillViewport="true"
+        android:elevation="0dp"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <EditText
+                android:textSize="15dp"
+                android:enabled="false"
+                android:clickable="false"
+                android:pointerIcon="text"
+                android:background="@drawable/input_bg"
+                android:hint="搜索"
+                 android:gravity="center"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/message_rv_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+    </cn.huangchengxi.kotlintest.customedviews.OverNestedScrollView>
+</LinearLayout>

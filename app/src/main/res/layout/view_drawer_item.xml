@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/body"
+    android:background="?android:selectableItemBackground">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_gravity="center|left"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:src="@drawable/close"
+            android:scaleType="fitXY"
+            android:id="@+id/icon"
+            android:layout_marginLeft="20dp"
+            android:layout_width="23dp"
+            android:layout_height="23dp"/>
+        <TextView
+            android:layout_marginLeft="20dp"
+            android:id="@+id/text"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:text="我的至尊SVIP"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+    <ImageView
+        android:layout_marginRight="20dp"
+        android:layout_gravity="center|right"
+        android:src="@drawable/right_arrow"
+        android:layout_width="10dp"
+        android:layout_height="10dp"/>
+</FrameLayout>
