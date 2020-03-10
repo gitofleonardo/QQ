@@ -28,6 +28,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp">
                     <ImageView
+                        android:id="@+id/my_portrait"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:src="@drawable/test_portrait" />
@@ -46,14 +47,16 @@
                 android:layout_height="wrap_content"/>
         </FrameLayout>
     </androidx.appcompat.widget.Toolbar>
-    <FrameLayout
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <fragment
             android:name="cn.huangchengxi.kotlintest.activity.main.fragments.MessageFragment"
             android:id="@+id/main_fragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
         <com.google.android.material.bottomnavigation.BottomNavigationView
             app:elevation="0dp"
             app:itemRippleColor="@android:color/transparent"
@@ -64,5 +67,5 @@
             app:backgroundTint="@color/white"
             android:layout_width="match_parent"
             android:layout_height="60dp"/>
-    </FrameLayout>
+    </LinearLayout>
 </LinearLayout>

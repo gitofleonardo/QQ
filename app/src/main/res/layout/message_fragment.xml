@@ -27,7 +27,7 @@
                 android:layout_margin="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"/>
-            <androidx.recyclerview.widget.RecyclerView
+            <cn.huangchengxi.kotlintest.customedviews.FitTopScrollRecyclerView
                 android:id="@+id/message_rv_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>

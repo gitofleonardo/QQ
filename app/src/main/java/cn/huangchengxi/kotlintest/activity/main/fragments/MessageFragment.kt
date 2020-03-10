@@ -31,7 +31,7 @@ class MessageFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        for (i in 0 until 10){
+        for (i in 0 until 20){
             messageList.add(MainMessageBean("null","大娱乐家","null","嘤嘤嘤",Date().time,false))
         }
         val view=inflater.inflate(R.layout.message_fragment, container, false)
