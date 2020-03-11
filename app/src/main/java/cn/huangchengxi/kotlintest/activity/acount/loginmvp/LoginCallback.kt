@@ -7,4 +7,6 @@ interface LoginCallback {
     fun onLoginSuccess()
     fun onLoginFailed()
     fun onFormatError()
+    fun onLoginProcessing()
+    fun onCancelLogin()
 }

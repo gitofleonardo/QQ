@@ -22,10 +22,12 @@ import cn.huangchengxi.kotlintest.activity.acount.registermvp.RegActivity
 import cn.huangchengxi.kotlintest.activity.main.MainActivity
 import cn.huangchengxi.kotlintest.adapter.LoginAccountAdapter
 import cn.huangchengxi.kotlintest.beans.LoginAccountBean
+import cn.huangchengxi.kotlintest.customedviews.WaitingDialog
 import cn.huangchengxi.kotlintest.databean.LocalUserDBBean
 import cn.huangchengxi.kotlintest.localutils.SqliteHelper
 import cn.huangchengxi.kotlintest.localutils.TextValidator
 import kotlinx.android.synthetic.main.view_login_account.*
+import java.lang.ref.WeakReference
 
 class LoginActivity : AppCompatActivity(),LoginCallback{
     //widget
@@ -45,6 +47,14 @@ class LoginActivity : AppCompatActivity(),LoginCallback{
     private val portraitImgParent by lazy { findViewById<CardView>(R.id.portrait_parent) }
     private val clearAccountBtn by lazy { findViewById<ImageView>(R.id.clear_account) }
     private val passwordEye by lazy { findViewById<ImageView>(R.id.password_eye) }
+    private val waitingDialog:WeakReference<WaitingDialog> by lazy {
+        val d=WaitingDialog(this)
+        d.cancelListener={
+            WeakReference<LoginPresenter>(presenter).get()?.cancel()
+        }
+        val w=WeakReference<WaitingDialog>(d)
+        w
+    }
 
     //value
     private val presenter:LoginPresenter= LoginPresenter(this)
@@ -265,6 +275,11 @@ class LoginActivity : AppCompatActivity(),LoginCallback{
     }
 
     override fun onLoginSuccess() {
+        if (waitingDialog.get()!=null){
+            if (waitingDialog.get()!!.isShowing){
+                waitingDialog.get()!!.dismiss()
+            }
+        }
         SqliteHelper.updateUser(this,uid.text.toString(),password.text.toString())
         val intent=Intent(this,MainActivity::class.java)
         startActivity(intent)
@@ -277,6 +292,22 @@ class LoginActivity : AppCompatActivity(),LoginCallback{
 
     override fun onFormatError() {
         Toast.makeText(this,"账号或密码格式错误",Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onLoginProcessing() {
+        if (waitingDialog.get()!=null){
+            if (!waitingDialog.get()!!.isShowing){
+                waitingDialog.get()!!.show()
+            }
+        }
+    }
+
+    override fun onCancelLogin() {
+        if (waitingDialog.get()!=null){
+            if (waitingDialog.get()!!.isShowing){
+                waitingDialog.get()!!.hide()
+            }
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

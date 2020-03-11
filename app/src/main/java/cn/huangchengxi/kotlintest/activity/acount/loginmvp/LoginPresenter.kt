@@ -9,7 +9,7 @@ class LoginPresenter (callback:LoginCallback){
             callback.onFormatError()
             return
         }
-
+        callback.onLoginProcessing()
         val basicLoginResultCallback=object : BasicLoginResultCallback{
             override fun onSuccess() {
                 callback.onLoginSuccess()
@@ -18,6 +18,9 @@ class LoginPresenter (callback:LoginCallback){
                 callback.onLoginFailed()
             }
         }
-        model.login(user!!.name,user!!.password,basicLoginResultCallback)
+        model.login(user.name, user.password,basicLoginResultCallback)
+    }
+    fun cancel(){
+        model.cancel()
     }
 }
