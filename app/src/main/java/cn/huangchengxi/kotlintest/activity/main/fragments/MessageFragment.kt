@@ -45,5 +45,4 @@ class MessageFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(MessageViewModel::class.java)
     }
-
 }
